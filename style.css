@@ -1,0 +1,91 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hero Container */
+.hero-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Hero Title */
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  z-index: 1;
+  position: absolute;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Corner Images Wrapper */
+.corner-images {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image-wrapper {
+  position: absolute;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.top-left { top: 5%; left: 5%; }
+.top-right { top: 5%; right: 5%; }
+.bottom-left { bottom: 5%; left: 5%; }
+.bottom-right { bottom: 5%; right: 5%; }
+
+/* Hero Images */
+.hero-image {
+  width: 150px;
+  height: 150px;
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+/* Apply vector-like effect to non-hovered images */
+.image-wrapper:hover .hero-image {
+  opacity: 1;
+  transform: scale(1.1);
+  filter: none; /* Remove vector effect on hovered image */
+  z-index: 2;
+}
+
+.image-wrapper:not(:hover) .hero-image {
+  filter: grayscale(100%) blur(1px); /* Vector effect for non-hovered images */
+  opacity: 0.5;
+}
+
+/* Image Text Overlay */
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show Text on Hover */
+.image-wrapper:hover .image-text {
+  opacity: 1;
+}
+
+/* Hidden Title on Click */
+.hero-title.hidden {
+  opacity: 0;
+}
